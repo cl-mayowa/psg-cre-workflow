@@ -1,0 +1,40 @@
+# ==========================================================================
+# CRE PROJECT SETTINGS FILE
+# ==========================================================================
+# This file defines environment-specific targets used by the CRE CLI.
+# Each top-level key is a target (e.g., `production`, `production-testnet`, etc.).
+#
+# You can define your own custom target names, such as `my-target`, and point
+# the CLI to it via an environment variable.
+#
+# Below is an example `my-target`:
+#
+# my-target:
+#   dev-platform:
+#     # Required: Workflow DON ID used for registering and operating workflows.
+#     don-family: "small"
+#   logging:
+#     # Optional: Path to the seth configuration file (TOML). Used for logging configuration.
+#     seth-config-path: "/path/to/seth-config.toml"
+#   rpcs:
+#     # Required: Map each used chain selector to a corresponding RPC URL (HTTPS)
+#     - chain-selector: 16015286601757825753
+#       url: "https://sepolia.infura.io/v3/YOUR_API_KEY"
+
+# ==========================================================================
+local-simulation:
+  rpcs:
+    - chain-selector: 16015286601757825753
+      url: https://eth-sepolia.api.onfinality.io/public
+
+# ==========================================================================
+production-testnet:
+  dev-platform:
+    don-family: "zone-a"
+  logging:
+    seth-config-path: ""
+  rpcs:
+    - chain-selector: 16015286601757825753 # Eth-Sepolia
+      url: https://sepolia.infura.io/v3/jQQtUTJeXzOKDeuKgKvVJukyY7/fIdH1B7fpJxfidBZ9W27h9K1hzg
+    - chain-selector: 10344971235874465080 # Base-Sepolia
+      url: <select your own rpc url>
